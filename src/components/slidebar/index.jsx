@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import styles from "./slidebar.module.scss";
 import { Link } from "react-router-dom";
@@ -61,38 +61,44 @@ const Category = [
   },
 ];
 function SlideBar(props) {
-  const [isActive, setActive] = useState([
-    {
-      drop: false,
-    },
-  ]);
-  const dropdown = useRef();
+  const [categoryList, setCategory] = useState(Category);
   const showMenu = useCallback(
-    (id) => {
+    (index) => {
       return () => {
-        const ul = document.getElementById(id);
-        dropdown.current = ul;
-        dropdown.current.classList.toggle(styles.active_dropdown);
-        setActive({
-          ...isActive,
-          id: id,
-          drop: (isActive.drop = !isActive.drop),
-        });
+        const updatedItem = [...categoryList];
+        updatedItem[index].isExtend = !updatedItem[index].isExtend;
+        setCategory(updatedItem);
       };
     },
-    [isActive]
+    [categoryList]
   );
+  const hiddenMenu= useCallback((()=>{
+    return ()=>{
+      
+      const updateItem=[...categoryList];
+      updateItem.map((item)=>{
+        if(item.isExtend) {
+          return item.isExtend=false
+        };
+        return item
+        
+      })
+      
+      setCategory(updateItem)
+
+    }
+  }),[categoryList])
+
   return (
-    <section className={styles.container}>
       <div className={styles.slide_bar}>
         <ul>
-          {Category.map((item) => {
+          {categoryList.map((item, index) => {
             if (item.sub && item.sub.length > 0) {
               return (
-                <li key={item.id}>
+                <li key={index}>
                   <Link>{item.name}</Link>
-                  <i onClick={showMenu(item.id)}>
-                    {isActive.id === item.id && isActive.drop === true ? (
+                  <i onClick={showMenu(index)}>
+                    {item.isExtend ? (
                       <img
                         src={require("assets/images/icon/slidebar/DropDown_Actived.png")}
                         alt="Dropdown_Active"
@@ -104,10 +110,16 @@ function SlideBar(props) {
                       />
                     )}
                   </i>
-                  <ul id={item.id} ref={dropdown} className={styles.dropdown}>
+                  <ul
+                    className={
+                      item.isExtend
+                        ? `${styles.dropdown} ${styles.active_dropdown}`
+                        : styles.dropdown
+                    }
+                  >
                     {item.sub.map((item) => {
                       return (
-                        <li key={item.id}>
+                        <li onClick={hiddenMenu()} key={item.id}>
                           <Link>{item.name}</Link>
                         </li>
                       );
@@ -125,7 +137,6 @@ function SlideBar(props) {
           })}
         </ul>
       </div>
-    </section>
   );
 }
 

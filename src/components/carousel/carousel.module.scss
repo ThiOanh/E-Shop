@@ -1,0 +1,23 @@
+@import "../common//common.scss";
+
+.carousel {
+  width: 800px;
+  padding: 1em;
+  text-align: center;
+}
+.dots {
+  li {
+    width: 10px !important;
+    height: 10px !important;
+    button {
+      width: 10px !important;
+      height: 10px !important;
+      border-radius: 50% !important;
+    }
+  }
+  .slick-active {
+    button{
+        background-color: red !important;
+    }
+  }
+}

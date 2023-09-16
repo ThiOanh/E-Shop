@@ -112,12 +112,12 @@
 }
 
 // Media
-@media (max-width: 1600px) {
+@media (max-width: 960px) {
   .top_header {
     .center_content {
       display: flex;
       justify-content: flex-start;
-
+      align-items: center;
       .bounce {
         width: calc(100% - 110px);
         height: 40px;
