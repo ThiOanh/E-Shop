@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
-import { Dropdown, Space, Input, Badge } from "antd";
+import React, { useCallback, useRef, useState } from "react";
+import { Dropdown, Space, Input, Badge, Button } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 
 import styles from "./header.module.scss";
 import { Link } from "react-router-dom";
@@ -23,10 +24,14 @@ const items = [
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 function Header(props) {
+  const [isShowMenu, setIsShowMenu] = useState(false);
   const userRef = useRef();
   const showUser = () => {
     userRef.current.classList.toggle(styles.active_user_dropdown);
   };
+  const showMenu = useCallback(() => {
+    setIsShowMenu((prev) => !prev);
+  }, []);
   return (
     <>
       {/* Top Header */}
@@ -65,26 +70,29 @@ function Header(props) {
           </div>
         </div>
       </header>
-      <hr className={styles.hr_header} />
       {/* Main Header */}
       <div className={styles.main_header}>
         <div className={styles.container}>
           <div className={styles.content_header}>
-            <div className={styles.left_header}>
-              {/* Logo */}
-              <div className={styles.logo_header}>
-                <h2>E-Shop</h2>
-              </div>
-              {/* Navbar */}
-              <nav className={styles.navbar_header}>
-                <ul>
-                  <li>Home</li>
-                  <li>Contact</li>
-                  <li>About</li>
-                  <li>Sign Up</li>
-                </ul>
-              </nav>
+            {/* Logo */}
+            <div className={styles.logo_header}>
+              <h2>E-Shop</h2>
             </div>
+            {/* Navbar */}
+            <nav
+              className={
+                isShowMenu
+                  ? `${styles.navbar_header} ${styles.navbar_active}`
+                  : styles.navbar_header
+              }
+            >
+              <ul>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>About</li>
+                <li>Sign Up</li>
+              </ul>
+            </nav>
             {/* Right Content */}
             <div className={styles.right_header}>
               {/* Search bar */}
@@ -96,41 +104,46 @@ function Header(props) {
                   width: 200,
                 }}
               />
-              {/* Wishlist icon*/}
-              <img
-                src={require("assets/images/icon/header/Wishlist.png")}
-                alt="Whishlist"
-              />
-              {/* Cart icon */}
-              <Badge count={0} showZero>
+              <div className={styles.box_icon}>
+                {/* Wishlist icon*/}
                 <img
-                  src={require("assets/images/icon/header/Cart1.png")}
+                  src={require("assets/images/icon/header/Wishlist.png")}
                   alt="Whishlist"
                 />
-              </Badge>
-              {/* User icon */}
-              <div onClick={showUser} className={styles.user}>
-                <img
-                  src={require("assets/images/icon/header/User=Off.png")}
-                  alt="Whishlist"
-                />
-                <div ref={userRef} className={styles.user_dropdown}>
-                  <ul>
-                    <li>
-                      <Link>Manage My Account</Link>
-                    </li>
-                    <li>
-                      <Link>My Order</Link>
-                    </li>
-                    <li>
-                      <Link>My Review</Link>
-                    </li>
-                    <li>
-                      <Link>Logout</Link>
-                    </li>
-                  </ul>
+                {/* Cart icon */}
+                <Badge count={0} showZero>
+                  <img
+                    src={require("assets/images/icon/header/Cart1.png")}
+                    alt="Whishlist"
+                  />
+                </Badge>
+                {/* User icon */}
+                <div onClick={showUser} className={styles.user}>
+                  <img
+                    src={require("assets/images/icon/header/User=Off.png")}
+                    alt="Whishlist"
+                  />
+                  <div ref={userRef} className={styles.user_dropdown}>
+                    <ul>
+                      <li>
+                        <Link>Manage My Account</Link>
+                      </li>
+                      <li>
+                        <Link>My Order</Link>
+                      </li>
+                      <li>
+                        <Link>My Review</Link>
+                      </li>
+                      <li>
+                        <Link>Logout</Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+              <Button className={styles.button_menu} onClick={showMenu}>
+                <MenuOutlined />
+              </Button>
             </div>
           </div>
         </div>
