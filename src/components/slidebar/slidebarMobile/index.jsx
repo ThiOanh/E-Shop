@@ -60,35 +60,35 @@ const Category = [
     name: "Medicine",
   },
   {
-    id: 5,
+    id: 6,
     name: "Other",
   },
 ];
 function SlideBarMobile(props) {
   const [categoryList, setCategory] = useState(Category);
-  const showMenu = useCallback(
-    (index) => {
-      return () => {
-        const updatedItem = [...categoryList];
-        updatedItem[index].isExtend = !updatedItem[index].isExtend;
-        setCategory(updatedItem);
-      };
-    },
-    [categoryList]
-  );
-  const hiddenMenu = useCallback(() => {
-    return () => {
-      const updateItem = [...categoryList];
-      updateItem.map((item) => {
-        if (item.isExtend) {
-          return (item.isExtend = false);
-        }
-        return item;
-      });
+//   const showMenu = useCallback(
+//     (index) => {
+//       return () => {
+//         const updatedItem = [...categoryList];
+//         updatedItem[index].isExtend = !updatedItem[index].isExtend;
+//         setCategory(updatedItem);
+//       };
+//     },
+//     [categoryList]
+//   );
+//   const hiddenMenu = useCallback(() => {
+//     return () => {
+//       const updateItem = [...categoryList];
+//       updateItem.map((item) => {
+//         if (item.isExtend) {
+//           return (item.isExtend = false);
+//         }
+//         return item;
+//       });
 
-      setCategory(updateItem);
-    };
-  }, [categoryList]);
+//       setCategory(updateItem);
+//     };
+//   }, [categoryList]);
 
   return (
     <div className={styles.slide_mobile}>

@@ -190,7 +190,6 @@
 }
 @media (max-width: 760px) {
   .main_header {
-    height: 65px;
     padding: 0px 15px;
     .navbar_header {
       position: absolute;
@@ -212,7 +211,10 @@
       height: 100vh !important;
       padding: 20px 0px !important;
     }
-
+.content_header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
     .right_header {
       .button_menu {
         display: block !important;

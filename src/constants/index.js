@@ -7,6 +7,7 @@ export const LOCATIONS = {
     // AD_CUSTOMER:'/admin/customers',
     //User
     HOME_PAGE: '/',
+    ABOUT_PAGE: '/about',
     // LOGIN: '/login',
     // PRODUCTS: '/products',
     // PRODUCT_DETAILS:'/product_details/:id',

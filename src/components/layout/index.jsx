@@ -20,9 +20,10 @@ function Layout(props) {
       </section>
       <section
         className={styles.container}
-        style={{ height: "800px" }}
-      ></section>
-      <Outlet />
+      >
+        <Outlet />
+      </section>
+      
       <Footer />
     </>
   );
