@@ -13,16 +13,14 @@ function Layout(props) {
       <Header />
       <section className={styles.container}>
         <div className={styles.section1}>
-              <SlideBar />
-              <Carousels />
-              <SlideBarMobile/>
+          <SlideBar />
+          <Carousels />
+          <SlideBarMobile />
         </div>
       </section>
-      <section
-        className={styles.container}
-        style={{ height: "800px" }}
-      ></section>
+
       <Outlet />
+
       <Footer />
     </>
   );
