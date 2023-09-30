@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 
 import styles from "./productDetail.module.scss";
 import SwiperProductImage from "./swiperProductImage";
@@ -11,7 +11,7 @@ function ProductDetail() {
 
   const [sizeSelected, setSizeSelected] = useState("1");
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   const handleSelectedColor = useCallback((e) => {
     setColorSelected(e.target.id);
@@ -22,7 +22,7 @@ function ProductDetail() {
   }, []);
 
   const subQuantity = useCallback(() => {
-    if (quantity === 1) {
+    if (quantity <= 0) {
       return;
     }
     setQuantity((quantity) => quantity - 1);
@@ -34,7 +34,7 @@ function ProductDetail() {
 
   const handleChangeQuantity = useCallback((e) => {
     if (!e.target.value) {
-      setQuantity(1);
+      setQuantity(0);
       return;
     }
     setQuantity(parseInt(e.target.value));
@@ -249,7 +249,8 @@ function ProductDetail() {
                     className={`${styles.quantity_input} ${styles.no_arrow_input}`}
                     type="number"
                     required
-                    value={quantity || 1}
+                    // value={quantity || 0}
+                    value={quantity !== 0 ? parseInt(quantity).toString() : '0'}
                     onChange={handleChangeQuantity}
                   />
                 </div>

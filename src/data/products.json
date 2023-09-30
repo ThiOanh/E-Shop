@@ -131,5 +131,62 @@
       "#FF0000",
       "#FF0000"
     ]
+  },
+  {
+    "isNew": false,
+    "discount": 5,
+    "imgSrc": "static/media/laptop.png",
+    "love": false,
+    "name": "ASUS FHD Gaming Laptop",
+    "discountedPrice": 100,
+    "price": 700,
+    "numOfEvaluate": 300,
+    "numOfEvaluate1Star": 0,
+    "numOfEvaluate2Star": 0,
+    "numOfEvaluate3Star": 0,
+    "numOfEvaluate4Star": 300,
+    "numOfEvaluate5Star": 0,
+    "colours": [
+      "#FF0000",
+      "#FF0000"
+    ]
+  },
+  {
+    "isNew": true,
+    "discount": 50,
+    "imgSrc": "static/media/gamePad2.png",
+    "love": false,
+    "name": "GP11 Shooter USB Gamepad",
+    "discountedPrice": 100,
+    "price": 660,
+    "numOfEvaluate": 500,
+    "numOfEvaluate1Star": 300,
+    "numOfEvaluate2Star": 0,
+    "numOfEvaluate3Star": 0,
+    "numOfEvaluate4Star": 0,
+    "numOfEvaluate5Star": 200,
+    "colours": [
+      "#FF0000",
+      "#FF0000"
+    ]
+  },
+  {
+    "isNew": true,
+    "discount": 50,
+    "imgSrc": "static/media/gamePad2.png",
+    "love": false,
+    "name": "GP11 Shooter USB Gamepad",
+    "discountedPrice": 100,
+    "price": 660,
+    "numOfEvaluate": 500,
+    "numOfEvaluate1Star": 300,
+    "numOfEvaluate2Star": 0,
+    "numOfEvaluate3Star": 0,
+    "numOfEvaluate4Star": 0,
+    "numOfEvaluate5Star": 200,
+    "colours": [
+      "#FF0000",
+      "#FF0000"
+    ]
   }
 ]

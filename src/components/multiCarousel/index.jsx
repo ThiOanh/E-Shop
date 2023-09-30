@@ -1,69 +1,87 @@
-import React, { memo } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// export default memo(MultiCarouselFlashSale);
 
-import ArrowButtonGroup from "components/button/arrowButtonCarousel";
+import React, { memo, useCallback, useRef } from "react";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+// import required modules
+import { Autoplay } from "swiper/modules";
+
 import FlashSaleItem from "components/flashSaleItem";
-import styles from "./multiCarousel.module.css";
-import { carouselResponsive } from "constants/index";
+import "./multiCarousel.css";
 
-function MultiCarouselCategories(props) {
+import ArrowButtonCarousel from "components/button/arrowButtonCarousel";
+
+function MultiCarouselFlashSale(props) {
+  const swiperFlashSale = useRef();
+
   const { list } = props;
 
+  const handleMouseEnter = useCallback(() => {
+    swiperFlashSale?.current?.swiper?.autoplay?.stop();
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    swiperFlashSale?.current?.swiper?.autoplay?.start();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    swiperFlashSale?.current?.swiper?.slideNext();
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    swiperFlashSale?.current?.swiper?.slidePrev();
+  }, []);
+
   return (
-    // flash sale carousel
-    <div className={styles.cover_carousel}>
-      <Carousel
-        additionalTransfrom={0}
-        arrows={false}
-        autoPlay
-        autoPlaySpeed={2000}
-        centerMode={false}
-        className=""
-        containerClass=""
-        customButtonGroup={<ArrowButtonGroup />} //using <ArrowButtonGroup />
-        dotListClass=""
-        draggable={false}
-        focusOnSelect={false}
-        infinite
-        itemClass=""
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside={true}
-        renderDotsOutside={false}
-        responsive={carouselResponsive}
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        shouldResetAutoplay
-        showDots={false}
-        sliderClass=""
-        slidesToSlide={1}
-        swipeable={false}
+    <div
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
+    className="cover_carousel_flash_sale"
+    >
+      <ArrowButtonCarousel prev={handlePrev} next={handleNext} />
+
+       {/* Multi Carousel FlashSale */}
+      <Swiper
+        ref={swiperFlashSale}
+        slidesPerView={"auto"}
+        spaceBetween={10}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        // loopedSlidesLimit={false}
+        // loopedSlides={1}
+        modules={[Autoplay]}
+        className="swiper_flash_sale"
       >
         {list.map((item, index) => {
           return (
-            <FlashSaleItem
-              key={index}
-              discount={item.discount}
-              imgSrc={item.imgSrc}
-              name={item.name}
-              discountedPrice={item.discountedPrice}
-              price={item.price}
-              numOfEvaluate={item.numOfEvaluate}
-              numOfEvaluate1Star={item.numOfEvaluate1Star}
-              numOfEvaluate2Star={item.numOfEvaluate2Star}
-              numOfEvaluate3Star={item.numOfEvaluate3Star}
-              numOfEvaluate4Star={item.numOfEvaluate4Star}
-              numOfEvaluate5Star={item.numOfEvaluate5Star}
-            />
+            <SwiperSlide key={index}>
+              <FlashSaleItem
+                discount={item.discount}
+                imgSrc={item.imgSrc}
+                name={item.name}
+                discountedPrice={item.discountedPrice}
+                price={item.price}
+                numOfEvaluate={item.numOfEvaluate}
+                numOfEvaluate1Star={item.numOfEvaluate1Star}
+                numOfEvaluate2Star={item.numOfEvaluate2Star}
+                numOfEvaluate3Star={item.numOfEvaluate3Star}
+                numOfEvaluate4Star={item.numOfEvaluate4Star}
+                numOfEvaluate5Star={item.numOfEvaluate5Star}
+              />
+            </SwiperSlide>
           );
         })}
-      </Carousel>
+      </Swiper>
     </div>
   );
 }
 
-export default memo(MultiCarouselCategories);
+export default memo(MultiCarouselFlashSale);

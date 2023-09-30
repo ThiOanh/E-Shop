@@ -1,54 +1,71 @@
-import React, { memo } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React, { memo, useCallback, useRef } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import ArrowButtonGroup from "components/button/arrowButtonCarousel";
-import styles from "./multiCarouselCategories.module.css";
-import { carouselCategoriesResponsive } from "constants/index";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay } from "swiper/modules";
+
+import ArrowButtonCarousel from "components/button/arrowButtonCarousel";
+import "./multiCarouselCategories.css";
 import CategoryItem from "components/categoryItem";
 
 function MultiCarouselCategories(props) {
+  const swiperCategories = useRef();
+
   const { list } = props;
+
+  const handleMouseEnter = useCallback(() => {
+    swiperCategories?.current?.swiper?.autoplay?.stop();
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    swiperCategories?.current?.swiper?.autoplay?.start();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    swiperCategories?.current?.swiper?.slideNext();
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    swiperCategories?.current?.swiper?.slidePrev();
+  }, []);
 
   return (
     // categories carousel
-    <div className={styles.cover_carousel}>
-      <Carousel
-        additionalTransfrom={0}
-        arrows={false}
-        autoPlay
-        autoPlaySpeed={2000}
-        centerMode={false}
-        className=""
-        containerClass="container-with-dots"
-        customButtonGroup={<ArrowButtonGroup />} //using <ArrowButtonGroup />
-        dotListClass=""
-        draggable={false}
-        focusOnSelect={false}
-        infinite
-        itemClass=""
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside={true}
-        renderDotsOutside={false}
-        responsive={carouselCategoriesResponsive}
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        shouldResetAutoplay
-        showDots={false}
-        sliderClass=""
-        slidesToSlide={1}
-        swipeable={false}
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="cover_carousel_categories"
+    >
+      <ArrowButtonCarousel prev={handlePrev} next={handleNext} />
+
+      <Swiper
+        ref={swiperCategories}
+        slidesPerView={"auto"}
+        spaceBetween={10}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        // loopedSlidesLimit={false}
+        // loopedSlides={1}
+        modules={[Autoplay]}
+        className="swiper_categories"
       >
         {list.map((item, index) => {
           return (
-            <CategoryItem key={index} imgSrc={item.imgSrc} name={item.name} />
+            <SwiperSlide key={index}>
+              <CategoryItem imgSrc={item.imgSrc} name={item.name} />
+            </SwiperSlide>
           );
         })}
-      </Carousel>
+      </Swiper>
     </div>
   );
 }

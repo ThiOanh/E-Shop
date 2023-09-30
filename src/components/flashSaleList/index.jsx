@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./flashSaleList.module.css";
-import MultiCarousel from "components/multiCarousel";
+import MultiCarouselFlashSale from "components/multiCarousel";
 import ViewAllProductsButton from "components/button/viewAllProductsButton";
 import TimeFlashSale from "components/timeFlashSale";
 
@@ -42,7 +42,7 @@ function FlashSaleList(props) {
 
       {/* carousel flash sale products */}
       <div className={`row ${styles.custom_row}`}>
-        <MultiCarousel list={list} />
+        <MultiCarouselFlashSale list={list} />
       </div>
 
       {/* button view all products */}
