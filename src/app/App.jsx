@@ -4,10 +4,7 @@ import { routers } from "router/router";
 
 function App() {
   const renderRoutes = useCallback((routers) => {
-    //hàm đệ quy map ra các router theo trạng thái đã và chưa đăng nhập tương ứng
-
     return routers.map((route, index) => {
-      //router khi đã đăng nhập
       if (route.children && route.children.length > 0) {
         return (
           <Route path={route.path} element={route.element} key={index}>
