@@ -9,7 +9,6 @@ export const LOCATIONS = {
     HOME_PAGE: '/',
     ABOUT_PAGE: '/about',
     // LOGIN: '/login',
-    // PRODUCTS: '/products',
-    // PRODUCT_DETAILS:'/product_details/:id',
-
+    PRODUCTS: '/products',
+    PRODUCT_DETAILS: '/products/:id',
 }

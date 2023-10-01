@@ -2,16 +2,18 @@
 // Top Header
 .top_header {
   background-color: #000000;
-  height: 48px;
   position: relative;
   .center_content {
     position: relative;
+    height: 48px;
     display: flex;
+    align-items: center;
     justify-content: center;
     p {
       font-size: 12px;
       font-weight: 400;
       line-height: 21px;
+      margin: 0;
     }
     a {
       font-weight: 600;
@@ -53,20 +55,32 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     .logo_header {
+      order: 0;
       white-space: nowrap;
     }
     .navbar_header {
+      .nav_mobile{
+        display: none;
+      }
+      flex-grow: 1;
+      order: 1;
       ul {
-        width: 100%;
+        margin: 0;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         gap: 16px;
       }
     }
-
+    .search_bar{
+      order: 2;
+      width: 180px;
+    }
     .right_header {
+      margin-left: 16px;
+      order: 3;
       height: 38px;
       gap: 16px;
       display: flex;
@@ -190,11 +204,13 @@
 }
 @media (max-width: 760px) {
   .main_header {
-    padding: 0px 15px;
     .navbar_header {
+      .nav_mobile{
+        display: block !important;
+      }
       position: absolute;
       left: 0;
-      top: 66px;
+      top: 60px;
       width: 100%;
       background-color: #fafafa;
       text-align: center;
@@ -207,6 +223,7 @@
         justify-content: space-between !important;
       }
     }
+   
     .navbar_active {
       height: 100vh !important;
       padding: 20px 0px !important;
@@ -216,14 +233,31 @@
   grid-template-columns: 1fr 1fr;
 }
     .right_header {
+      .box_icon{
+        .wishlist,.user{
+          display: none;
+        }
+      }
       .button_menu {
         display: block !important;
       }
-      gap: 10px !important;
     }
   }
 
   .top_header {
     display: none;
   }
+}
+@media only screen and (max-width:500px){
+  .search_bar{
+    width: 150px !important;
+  }
+//   .search_bar{
+//     display: none;
+//     order: 4 !important;
+//    flex: 1 0 100%;
+//   }
+//   active_search{
+//     display: block;
+//   }
 }

@@ -88,29 +88,26 @@ function Header(props) {
               }
             >
               <ul>
-                <li><Link to={LOCATIONS.HOME_PAGE}>Home</Link></li>
-                <li><Link >Contact</Link></li>
-                <li><Link to={LOCATIONS.ABOUT_PAGE}>About</Link></li>
-                <li><Link>Sign Up</Link></li>
+
               </ul>
+              
             </nav>
-            {/* Right Content */}
-            <div className={styles.right_header}>
-              {/* Search bar */}
-              <Search
+            <Search
                 placeholder="What are you looking for?"
                 allowClear
                 onSearch={onSearch}
-                style={{
-                  width: 200,
-                }}
+                className={styles.search_bar}
               />
+            {/* Right Content */}
+            <div className={styles.right_header}>
+              {/* Search bar */}
+             
               <div className={styles.box_icon}>
                 {/* Wishlist icon*/}
-                <img
+                <Link className={styles.wishlist}><img
                   src={require("assets/images/icon/header/Wishlist.png")}
-                  alt="Whishlist"
-                />
+                  alt="Wishlist"
+                /></Link>
                 {/* Cart icon */}
                 <Badge count={0} showZero>
                   <img
