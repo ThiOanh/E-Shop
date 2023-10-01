@@ -90,26 +90,28 @@ function Header(props) {
                 <li>Home</li>
                 <li>Contact</li>
                 <li>About</li>
+                <Link className={styles.nav_mobile}>Wishlist</Link>
+                <Link className={styles.nav_mobile}> Account</Link>
                 <li>Sign Up</li>
               </ul>
+              
             </nav>
-            {/* Right Content */}
-            <div className={styles.right_header}>
-              {/* Search bar */}
-              <Search
+            <Search
                 placeholder="What are you looking for?"
                 allowClear
                 onSearch={onSearch}
-                style={{
-                  width: 200,
-                }}
+                className={styles.search_bar}
               />
+            {/* Right Content */}
+            <div className={styles.right_header}>
+              {/* Search bar */}
+             
               <div className={styles.box_icon}>
                 {/* Wishlist icon*/}
-                <img
+                <Link className={styles.wishlist}><img
                   src={require("assets/images/icon/header/Wishlist.png")}
-                  alt="Whishlist"
-                />
+                  alt="Wishlist"
+                /></Link>
                 {/* Cart icon */}
                 <Badge count={0} showZero>
                   <img
