@@ -1,10 +1,11 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback,  useState } from "react";
 import { Dropdown, Space, Input, Badge, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 
 import styles from "./header.module.scss";
 import{LOCATIONS} from "constants/index";
 import { Link } from "react-router-dom";
+import Account from "./account";
 
 const { Search } = Input;
 // Item of Language Select
@@ -26,10 +27,6 @@ const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 function Header(props) {
   const [isShowMenu, setIsShowMenu] = useState(false);
-  const userRef = useRef();
-  const showUser = () => {
-    userRef.current.classList.toggle(styles.active_user_dropdown);
-  };
   const showMenu = useCallback(() => {
     setIsShowMenu((prev) => !prev);
   }, []);
@@ -37,7 +34,7 @@ function Header(props) {
     <>
       {/* Top Header */}
       <header className={styles.top_header}>
-        <div className={styles.container}>
+        <div className="container">
           {/* Content Sale */}
           <div className={styles.center_content}>
             <div className={styles.bounce}>
@@ -73,7 +70,7 @@ function Header(props) {
       </header>
       {/* Main Header */}
       <div className={styles.main_header}>
-        <div className={styles.container}>
+        <div className="container">
           <div className={styles.content_header}>
             {/* Logo */}
             <div className={styles.logo_header}>
@@ -87,11 +84,15 @@ function Header(props) {
                   : styles.navbar_header
               }
             >
-              <ul>
+              <ul className={styles.menu} onClick={()=>setIsShowMenu(false)}>
               <li><Link to={LOCATIONS.HOME_PAGE}>Home</Link></li>
               <li><Link to={LOCATIONS.CONTRACT_PAGE}>Contract</Link></li>
               <li><Link to={LOCATIONS.ABOUT_PAGE}>About</Link></li>
-              <li><Link to={LOCATIONS.SINGUP_PAGE}>Sign Up</Link></li>
+              <li className={styles.li_pc}><Link to={LOCATIONS.SINGUP_PAGE}>Sign Up</Link></li>
+              <li className={styles.li_mobile}><Link >Whishlist</Link></li>
+              </ul>
+              <ul className={styles.account}>
+              <li><Account title="Account" /></li>
               </ul>
               
             </nav>
@@ -119,27 +120,8 @@ function Header(props) {
                   />
                 </Badge>
                 {/* User icon */}
-                <div onClick={showUser} className={styles.user}>
-                  <img
-                    src={require("assets/images/icon/header/User=Off.png")}
-                    alt="Whishlist"
-                  />
-                  <div ref={userRef} className={styles.user_dropdown}>
-                    <ul>
-                      <li>
-                        <Link>Manage My Account</Link>
-                      </li>
-                      <li>
-                        <Link>My Order</Link>
-                      </li>
-                      <li>
-                        <Link>My Review</Link>
-                      </li>
-                      <li>
-                        <Link>Logout</Link>
-                      </li>
-                    </ul>
-                  </div>
+                <div className={styles.account}>
+                <Account title="img"/>
                 </div>
               </div>
               <Button className={styles.button_menu} onClick={showMenu}>

@@ -7,7 +7,7 @@ function Footer(props) {
   return (
     <footer className={styles.footer}>
       {/* Main Footer */}
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.content}>
           <Row>
             <Col xl={5} md={12} sm={24} xs={24}>
