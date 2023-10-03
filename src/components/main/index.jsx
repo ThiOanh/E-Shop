@@ -19,7 +19,7 @@ import styles from './main.module.scss'
 function Main() {
   return (
     <>
-    <section className={styles.container}>
+    <section className="container">
         <div className={styles.section1}>
           <SlideBar />
           <Carousels />
