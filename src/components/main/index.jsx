@@ -11,10 +11,21 @@ import OurProducts from "components/ourProducts";
 import Featured from "components/featured";
 import ServicesMenu from "components/servicesMenu";
 import ProductDetail from "components/productDetail";
+import SlideBar from "components/slidebar";
+import Carousels from "components/carousel";
+import SlideBarMobile from "components/slidebar/slidebarMobile";
+import styles from './main.module.scss'
 
 function Main() {
   return (
     <>
+    <section className={styles.container}>
+        <div className={styles.section1}>
+          <SlideBar />
+          <Carousels />
+          <SlideBarMobile />
+        </div>
+      </section>
       {/* section flash sale */}
       <section>
         <FlashSaleList list={products} />

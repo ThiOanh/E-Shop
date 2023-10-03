@@ -88,7 +88,10 @@ function Header(props) {
               }
             >
               <ul>
-
+              <li><Link to={LOCATIONS.HOME_PAGE}>Home</Link></li>
+              <li><Link to={LOCATIONS.CONTRACT_PAGE}>Contract</Link></li>
+              <li><Link to={LOCATIONS.ABOUT_PAGE}>About</Link></li>
+              <li><Link to={LOCATIONS.SINGUP_PAGE}>Sign Up</Link></li>
               </ul>
               
             </nav>
