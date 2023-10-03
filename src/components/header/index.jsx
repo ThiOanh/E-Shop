@@ -3,6 +3,7 @@ import { Dropdown, Space, Input, Badge, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 
 import styles from "./header.module.scss";
+import{LOCATIONS} from "constants/index";
 import { Link } from "react-router-dom";
 
 const { Search } = Input;
@@ -87,12 +88,7 @@ function Header(props) {
               }
             >
               <ul>
-                <li>Home</li>
-                <li>Contact</li>
-                <li>About</li>
-                <Link className={styles.nav_mobile}>Wishlist</Link>
-                <Link className={styles.nav_mobile}> Account</Link>
-                <li>Sign Up</li>
+
               </ul>
               
             </nav>

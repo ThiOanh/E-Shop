@@ -18,9 +18,7 @@ function Layout(props) {
           <SlideBarMobile />
         </div>
       </section>
-
       <Outlet />
-
       <Footer />
     </>
   );

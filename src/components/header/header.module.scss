@@ -204,8 +204,6 @@
 }
 @media (max-width: 760px) {
   .main_header {
-    padding: 11px 15px;
-    height: 60px;
     .navbar_header {
       .nav_mobile{
         display: block !important;
@@ -230,7 +228,10 @@
       height: 100vh !important;
       padding: 20px 0px !important;
     }
-
+.content_header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
     .right_header {
       .box_icon{
         .wishlist,.user{
