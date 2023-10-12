@@ -25,6 +25,7 @@ export const routers = [
             //   { path: LOCATIONS.TAB, name: "Tab", element: <TabPage /> },
             //   { path: LOCATIONS.SLIDE, name: "Slider", element: <SliderPage /> },
             //   { path: LOCATIONS.MY_PROFILE, name: "My Profile", element: <Profile /> },
+
         ]
     },
 ]

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Cart/Cart.css";
+import "./Cart.css";
 import { Layout } from "antd";
 
 function App() {
