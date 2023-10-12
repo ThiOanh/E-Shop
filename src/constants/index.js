@@ -12,4 +12,5 @@ export const LOCATIONS = {
     PRODUCTS: '/products',
     PRODUCT_DETAILS: '/products/:id',
     CART: '/cart',
+    CHECKOUT: '/cart-checkout',
 }

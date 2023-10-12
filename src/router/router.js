@@ -4,6 +4,7 @@ import Main from 'components/main';
 import AboutPage from 'pages/about';
 import ProductDetail from 'components/productDetail';
 import Cart from 'components/Cart/cart';
+import Checkout from 'components/Cart/Checkout';
 export const routers = [
     //   { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
     {
@@ -15,6 +16,9 @@ export const routers = [
             { path: LOCATIONS.ABOUT_PAGE, name: "About", element: < AboutPage / > },
             { path: LOCATIONS.PRODUCT_DETAILS, element: < ProductDetail / > },
             { path: LOCATIONS.CART, element: < Cart / > },
+            { path: LOCATIONS.CHECKOUT, element: < Checkout / > },
+
+
 
 
             //   { path: LOCATIONS.FORM, name: "Form Register", element: <FormPage /> },

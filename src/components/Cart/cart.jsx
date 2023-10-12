@@ -1,5 +1,8 @@
-import React from "react";
 
+
+import React from "react";
+ import { Link } from "react-router-dom";
+ import { LOCATIONS } from "constants/index";
 function Cart(props) {
   return (
     <div className="container">
@@ -61,7 +64,9 @@ function Cart(props) {
               <p>free</p>
             </div>
             <div>
-            <button className="btn btn-danger">Process Checkout</button>
+            
+<Link to={LOCATIONS.CHECKOUT}><button className="btn btn-danger">Process Checkout</button></Link>
+
           </div>
           </div>
           
