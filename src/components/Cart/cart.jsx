@@ -1,36 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LOCATIONS } from "constants/index";
-import styles from "./cart.module.css";
-
-
 
 
 function cart(props) {
   return (
     
     <div className="container">
-      <div>Home / Cart</div>
-      <div>
-        <table className="table table-striped">
+      <h2>Home / Cart</h2>
+      <p></p>
+
+      <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Subtotal</th>
-              <th scope="col">Remove</th>
+              <th> Product</th>
+              <th> Price</th>
+              <th> Quantity</th>
+              <th> Subtotal</th>
+              <th> Remove</th>
             </tr>
           </thead>
-          <tr style={{ border: "1px solid black" }}>
-            <tr>
+          <tbody>         
+          <tr>
+            <td>
             <img
             src={require("assets/images/cart/monitor.png")}
             className="Ltd Monitor"
             alt="..."
           />
+          
               <td>Ltd Monitor</td>
-            </tr>
+            </td>
 
             <td>650$</td>
             <td>
@@ -47,14 +47,14 @@ function cart(props) {
             </td>
           </tr>
           <tr>
-            <tr>
+            <td>
             <img
             src={require("assets/images/cart/gamePad.png")}
             className="h1 Gamepad"
             alt="..."
           />
               <td>H1 Gamepad</td>
-            </tr>
+            </td>
             <td>550$</td>
             <td>
             <button class="decrease()">-</button>
@@ -68,13 +68,18 @@ function cart(props) {
               </button>
             </td>
           </tr>
+          </tbody>
         </table>
-        <hr />
+        <br />
         <div className="d-flex justify-content-between">
-          <div>Return To Shop</div>
-          <div>Update Cart</div>
+          <div>
+            <button>Return To Shop</button>
+            
+            </div>
+            
+          <div> <button>Update Cart</button></div>
         </div>
-        <hr />
+        <br />
         <div className="d-flex justify-content-between">
           <div>
             <input type="text" placeholder="coupon Code" />
@@ -102,7 +107,7 @@ function cart(props) {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
 
