@@ -69,13 +69,9 @@
         }
     }
     }
-}
-// Carousel
-.dot{
-    li{
-        button{
-            background-color: #DB4444 !important;
-        }
+    .swiper_slide{
+        width: calc(100% / 3);
     }
 }
+// Carousel
 

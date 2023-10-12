@@ -1,14 +1,22 @@
-import React from "react";
-import { Row, Col, Carousel } from "antd";
-
+import React, { useCallback, useRef } from "react";
+import { Row, Col } from "antd";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import styles
+import "swiper/css";
 import styles from "./about.module.scss";
 function AboutPage(props) {
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
+  const swiperOurPRoducts = useRef();
+  const handleNext = useCallback(() => {
+    swiperOurPRoducts?.current?.swiper?.slideNext();
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    swiperOurPRoducts?.current?.swiper?.slidePrev();
+  }, []);
   return (
     <>
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.about_me}>
           <Row style={{ alignItems: "center" }}>
             <Col lg={12} md={24}>
@@ -40,7 +48,7 @@ function AboutPage(props) {
         </div>
         <div className={styles.dashboard}>
           <Row>
-            <Col span={6} className={styles.row}>
+            <Col md={6} xs={12} className={styles.row}>
               <div className={styles.box_dashboard}>
                 <div className={styles.box_icon}>
                   <img
@@ -52,7 +60,7 @@ function AboutPage(props) {
                 <p>Sallers active our site</p>
               </div>
             </Col>
-            <Col span={6} className={styles.row}>
+            <Col md={6} xs={12} className={styles.row}>
               <div className={styles.box_dashboard}>
                 <div className={styles.box_icon}>
                   <img
@@ -64,7 +72,7 @@ function AboutPage(props) {
                 <p>Sallers active our site</p>
               </div>
             </Col>
-            <Col span={6} className={styles.row}>
+            <Col md={6} xs={12} className={styles.row}>
               <div className={styles.box_dashboard}>
                 <div className={styles.box_icon}>
                   <img
@@ -76,7 +84,7 @@ function AboutPage(props) {
                 <p>Sallers active our site</p>
               </div>
             </Col>
-            <Col span={6} className={styles.row}>
+            <Col md={6} xs={12} className={styles.row}>
               <div className={styles.box_dashboard}>
                 <div className={styles.box_icon}>
                   <img
@@ -91,79 +99,250 @@ function AboutPage(props) {
           </Row>
         </div>
         <div className={styles.profile}>
-          <Carousel dots={{className:styles.dot}} afterChange={onChange}>
+          <button onClick={handlePrev}>prev</button>
+          <button onClick={handleNext}>next</button>
+          <Swiper
+            ref={swiperOurPRoducts}
+            spaceBetween={50}
+            breakpoints={{
+              // Show 1 slide when screen width less than 700px
+              0: { slidesPerView: 1 },
+              // Show 2 slide when  770px < screen < 1024px
+              770: { slidesPerView: 2 },
+              // Show 2 slide when screen > 1200px
+              1024: { slidesPerView: 3 },
+              1980:{ slidesPerView: 4 }
+            }}
+          >
+            <SwiperSlide>
+              <div className={styles.box_profile}>
+                <img src={require("assets/images/about/image 46.png")} alt="" />
+                <h1>Tom Cruise</h1>
+                <p>Fouder and Charman</p>
+                <div className={styles.box_icon}>
+                  <img
+                    src={require("assets/images/about/Icon-Twitter.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/icon-instagram.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/Icon-Linkedin.png")}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className={styles.box_profile}>
+                <img src={require("assets/images/about/image 46.png")} alt="" />
+                <h1>Tom Cruise</h1>
+                <p>Fouder and Charman</p>
+                <div className={styles.box_icon}>
+                  <img
+                    src={require("assets/images/about/Icon-Twitter.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/icon-instagram.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/Icon-Linkedin.png")}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className={styles.box_profile}>
+                <img src={require("assets/images/about/image 46.png")} alt="" />
+                <h1>Tom Cruise</h1>
+                <p>Fouder and Charman</p>
+                <div className={styles.box_icon}>
+                  <img
+                    src={require("assets/images/about/Icon-Twitter.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/icon-instagram.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/Icon-Linkedin.png")}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className={styles.box_profile}>
+                <img src={require("assets/images/about/image 46.png")} alt="" />
+                <h1>Tom Cruise</h1>
+                <p>Fouder and Charman</p>
+                <div className={styles.box_icon}>
+                  <img
+                    src={require("assets/images/about/Icon-Twitter.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/icon-instagram.png")}
+                    alt=""
+                  />
+                  <img
+                    src={require("assets/images/about/Icon-Linkedin.png")}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+          {/* <Carousel dots={{ className: styles.dot }} afterChange={onChange}>
             <div className={styles.box_profile}>
               <Row>
                 <Col span={8}>
-                    <img src={require('assets/images/about/image 46.png')} alt="" />
-                    <h1>Tom Cruise</h1>
-                    <p>Fouder and Charman</p>
-                    <div className={styles.box_icon}>
-                        <img src={require('assets/images/about/Icon-Twitter.png')} alt="" />
-                        <img src={require('assets/images/about/icon-instagram.png')} alt="" />
-                        <img src={require('assets/images/about/Icon-Linkedin.png')} alt="" />
-                    </div>
+                  <img
+                    src={require("assets/images/about/image 46.png")}
+                    alt=""
+                  />
+                  <h1>Tom Cruise</h1>
+                  <p>Fouder and Charman</p>
+                  <div className={styles.box_icon}>
+                    <img
+                      src={require("assets/images/about/Icon-Twitter.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/icon-instagram.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/Icon-Linkedin.png")}
+                      alt=""
+                    />
+                  </div>
                 </Col>
                 <Col span={8}>
-                <img src={require('assets/images/about/image 51.png')} alt="" />
-                <h1>Emma Watson</h1>
-                    <p>Maganing Director</p>
-                    <div className={styles.box_icon}>
-                        <img src={require('assets/images/about/Icon-Twitter.png')} alt="" />
-                        <img src={require('assets/images/about/icon-instagram.png')} alt="" />
-                        <img src={require('assets/images/about/Icon-Linkedin.png')} alt="" />
-                    </div>
+                  <img
+                    src={require("assets/images/about/image 51.png")}
+                    alt=""
+                  />
+                  <h1>Emma Watson</h1>
+                  <p>Maganing Director</p>
+                  <div className={styles.box_icon}>
+                    <img
+                      src={require("assets/images/about/Icon-Twitter.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/icon-instagram.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/Icon-Linkedin.png")}
+                      alt=""
+                    />
+                  </div>
                 </Col>
                 <Col span={8}>
-                <img src={require('assets/images/about/image 47.png')} alt="" />
-                <h1>Will Smith</h1>
-                    <p>Products Design</p>
-                    <div className={styles.box_icon}>
-                        <img src={require('assets/images/about/Icon-Twitter.png')} alt="" />
-                        <img src={require('assets/images/about/icon-instagram.png')} alt="" />
-                        <img src={require('assets/images/about/Icon-Linkedin.png')} alt="" />
-                    </div>
+                  <img
+                    src={require("assets/images/about/image 47.png")}
+                    alt=""
+                  />
+                  <h1>Will Smith</h1>
+                  <p>Products Design</p>
+                  <div className={styles.box_icon}>
+                    <img
+                      src={require("assets/images/about/Icon-Twitter.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/icon-instagram.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/Icon-Linkedin.png")}
+                      alt=""
+                    />
+                  </div>
                 </Col>
               </Row>
-              
             </div>
             <div>
-            <Row>
+              <Row>
                 <Col span={8}>
-                <div className={styles.box_profile}>
-                    <img src={require('assets/images/about/image 46.png')} alt="" />
+                  <div className={styles.box_profile}>
+                    <img
+                      src={require("assets/images/about/image 46.png")}
+                      alt=""
+                    />
                     <h1>Tom Cruise</h1>
                     <p>Fouder and Charman</p>
                     <div className={styles.box_icon}>
-                        <img src={require('assets/images/about/Icon-Twitter.png')} alt="" />
-                        <img src={require('assets/images/about/icon-instagram.png')} alt="" />
-                        <img src={require('assets/images/about/Icon-Linkedin.png')} alt="" />
+                      <img
+                        src={require("assets/images/about/Icon-Twitter.png")}
+                        alt=""
+                      />
+                      <img
+                        src={require("assets/images/about/icon-instagram.png")}
+                        alt=""
+                      />
+                      <img
+                        src={require("assets/images/about/Icon-Linkedin.png")}
+                        alt=""
+                      />
                     </div>
-                </div>
+                  </div>
                 </Col>
                 <Col span={8}>
-                <img src={require('assets/images/about/image 51.png')} alt="" />
-                <h1>Emma Watson</h1>
-                    <p>Maganing Director</p>
-                    <div className={styles.box_icon}>
-                        <img src={require('assets/images/about/Icon-Twitter.png')} alt="" />
-                        <img src={require('assets/images/about/icon-instagram.png')} alt="" />
-                        <img src={require('assets/images/about/Icon-Linkedin.png')} alt="" />
-                    </div>
+                  <img
+                    src={require("assets/images/about/image 51.png")}
+                    alt=""
+                  />
+                  <h1>Emma Watson</h1>
+                  <p>Maganing Director</p>
+                  <div className={styles.box_icon}>
+                    <img
+                      src={require("assets/images/about/Icon-Twitter.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/icon-instagram.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/Icon-Linkedin.png")}
+                      alt=""
+                    />
+                  </div>
                 </Col>
                 <Col span={8}>
-                <img src={require('assets/images/about/image 47.png')} alt="" />
-                <h1>Will Smith</h1>
-                    <p>Products Design</p>
-                    <div className={styles.box_icon}>
-                        <img src={require('assets/images/about/Icon-Twitter.png')} alt="" />
-                        <img src={require('assets/images/about/icon-instagram.png')} alt="" />
-                        <img src={require('assets/images/about/Icon-Linkedin.png')} alt="" />
-                    </div>
+                  <img
+                    src={require("assets/images/about/image 47.png")}
+                    alt=""
+                  />
+                  <h1>Will Smith</h1>
+                  <p>Products Design</p>
+                  <div className={styles.box_icon}>
+                    <img
+                      src={require("assets/images/about/Icon-Twitter.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/icon-instagram.png")}
+                      alt=""
+                    />
+                    <img
+                      src={require("assets/images/about/Icon-Linkedin.png")}
+                      alt=""
+                    />
+                  </div>
                 </Col>
               </Row>
             </div>
-          </Carousel>
+          </Carousel> */}
         </div>
       </div>
     </>
