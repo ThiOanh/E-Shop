@@ -113,12 +113,14 @@ function Header(props) {
                   alt="Wishlist"
                 /></Link>
                 {/* Cart icon */}
-                <Badge count={0} showZero>
+               <Link to={LOCATIONS.CART}>
+               <Badge count={0} showZero>
                   <img
                     src={require("assets/images/icon/header/Cart1.png")}
                     alt="Whishlist"
                   />
                 </Badge>
+               </Link>
                 {/* User icon */}
                 <div className={styles.account}>
                 <Account title="img"/>
