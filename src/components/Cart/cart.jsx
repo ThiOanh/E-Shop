@@ -10,7 +10,7 @@ function cart(props) {
       <h2>Home / Cart</h2>
       <p></p>
 
-      <table class="table table-striped">
+      <table class="table">
           <thead>
             <tr>
               <th> Product</th>
