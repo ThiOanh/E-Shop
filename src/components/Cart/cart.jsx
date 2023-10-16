@@ -9,7 +9,7 @@ function cart(props) {
     <div className="container">
       {/* header link  */}
       <div className="d-flex my-5 text-black-50 form-text">
-        <a href="/account">Home</a>
+        <li><Link to={LOCATIONS.HOME_PAGE}>Home</Link></li>
         <span className="mx-2">/</span>
         {/* active text-body */}
         <a href="/Cart" className="text-body">
@@ -86,6 +86,7 @@ function cart(props) {
           <input type="text" placeholder="coupon Code" />
           <button class="btn btn-danger">Apply Coupon</button>
         </div>
+
         <div >
           <h3>Cart Total</h3>
           <div className="d-flex justify-content-between">
@@ -106,6 +107,7 @@ function cart(props) {
             </Link>
           </div>
         </div>
+
       </div>
     </div>
   );
