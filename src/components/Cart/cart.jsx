@@ -7,8 +7,15 @@ function cart(props) {
   return (
     
     <div className="container">
-      <h2>Home / Cart</h2>
-      <p></p>
+      {/* header link  */}
+      <div className="d-flex my-5 text-black-50 form-text">
+        <a href="/account">Home</a>
+        <span className="mx-2">/</span>
+        {/* active text-body */}
+        <a href="/Cart" className="text-body">
+          Cart
+        </a>
+      </div>
 
       <table class="table">
           <thead>
