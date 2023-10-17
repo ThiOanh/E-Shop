@@ -62,7 +62,9 @@ function cart(props) {
               <button class="btn btn-danger my-5">Delete</button>
             </td>
           </tr>
-          <tr>
+
+
+          <tr> 
             <td>
               <div className="d-flex align-items-center my-5">
                 <img src={laptop} alt="laptop" width={50} height={50} />
@@ -90,6 +92,8 @@ function cart(props) {
               <button class="btn btn-danger my-5">Delete</button>
             </td>
           </tr>
+
+
         </tbody>
       </table>
       <br />
@@ -124,40 +128,42 @@ function cart(props) {
             placeholder="Coupon Code"
             style={{ height: 56, width:300 }}
           />
-          <button class="btn btn-danger" style={{ height: 56, width:211 }}>
+          <button class="btn btn-danger" style={{ height: 56, width:211, borderRadius:4 }}>
             Apply Coupon
           </button>
         </div>
 
         <span
-          class="border border-dark "
+          class="border border-dark  "
           style={{ height: 324, width: 470, margin:"top" }}
         >
 
 
-          <div >
-            <text className="text" width={100} height={28} top={32} left={24} size={20} >Cart Total</text>
-            <div className="d-flex justify-content-between">
+          <div className="container mt-3"  >
+            <h5 className="text" width={100} height={28}  >Cart Total</h5>
+            <div className="d-flex justify-content-between my-4 ">
               <p>Subtotal:</p>
               <p>1750$</p>
             </div>
-            <hr width="80%" color="black"  size="1px"/>
+            <hr width="95%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Shiping:</p>
-              <p>free</p>
+              <p>Free</p>
             </div>
-            <hr width="80%" color="black"  size="1px"/>
+            <hr width="95%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Total:</p>
               <p>1750$</p>
             </div>
 
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-around">
               <Link to={LOCATIONS.CHECKOUT}>
                 <button className="btn btn-danger " >Process Checkout</button>
               </Link>
             </div>
           </div>
+
+          
 
         </span>
       </div>
