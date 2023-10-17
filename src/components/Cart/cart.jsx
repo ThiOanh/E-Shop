@@ -128,7 +128,7 @@ function cart(props) {
             placeholder="Coupon Code"
             style={{ height: 56, width:300 }}
           />
-          <button class="btn btn-danger" style={{ height: 56, width:211, borderRadius:4 }}>
+          <button class="btn btn-danger w-90" style={{ height: 56, width:211, borderRadius:4 }}>
             Apply Coupon
           </button>
         </div>
