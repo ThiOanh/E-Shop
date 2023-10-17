@@ -4,6 +4,10 @@ import laptop from "assets/product/laptop.png";
 import { Link } from "react-router-dom";
 import { LOCATIONS } from "constants/index";
 
+
+
+
+
 function cart(props) {
   return (
     <div className="container">
@@ -86,9 +90,11 @@ function cart(props) {
           <input type="text" placeholder="coupon Code" />
           <button class="btn btn-danger">Apply Coupon</button>
         </div>
-
+       
+       
+        <span class="border border-dark">
         <div >
-          <h3>Cart Total</h3>
+          <text className="text">Cart Total</text>
           <div className="d-flex justify-content-between">
             <p>Subtotal:</p>
             <p>1750$</p>
@@ -106,7 +112,10 @@ function cart(props) {
               <button className="btn btn-danger">Process Checkout</button>
             </Link>
           </div>
-        </div>
+          </div>
+          </span>
+       
+
 
       </div>
     </div>
