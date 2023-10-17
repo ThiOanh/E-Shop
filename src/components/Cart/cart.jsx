@@ -145,12 +145,12 @@ function cart(props) {
               <p>Subtotal:</p>
               <p>1750$</p>
             </div>
-            <hr width="95%" color="black"  size="1px"/>
+            <hr width="99%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Shiping:</p>
               <p>Free</p>
             </div>
-            <hr width="95%" color="black"  size="1px"/>
+            <hr width="99%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Total:</p>
               <p>1750$</p>
