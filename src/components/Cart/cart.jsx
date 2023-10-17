@@ -120,7 +120,7 @@ function cart(props) {
       </div>
       <br />
 
-      <div className="d-flex justify-content-between my-5">
+      <div className="d-flex justify-content-between my-4">
         <div class="d-flex justify-content-around gap-lg-3">
           <input
             type="text"
