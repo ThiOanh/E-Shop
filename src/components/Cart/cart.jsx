@@ -34,7 +34,7 @@ function cart(props) {
           <tr>
             <td>
               <div className="d-flex align-items-center my-5">
-                <img src={gamepad} alt="gamepad" width={54} height={54}  />
+                <img src={gamepad} alt="gamepad" width={54} height={54} />
                 <div className="mx-2">LCD Monitor</div>
               </div>
             </td>
@@ -44,16 +44,23 @@ function cart(props) {
             </td>
 
             <td>
-              <button class="decrease() my-5">-</button>
-              <input type="number" max={100} min={1} defaultValue={1} />
-              <button class="increase()">+</button>
+              <button class="decrease() my-5 btn btn-light">-</button>
+              <input
+                type="number"
+                max={100}
+                min={1}
+                defaultValue={1}
+                style={{ height: 35 }}
+              />
+              <button class="increase() btn btn-light">+</button>
               <p id="demo"></p>
             </td>
-            <td><div className="my-5">650$</div></td>
+            <td>
+              <div className="my-5">650$</div>
+            </td>
             <td>
               <button class="btn btn-danger my-5">Delete</button>
             </td>
-            
           </tr>
           <tr>
             <td>
@@ -62,13 +69,23 @@ function cart(props) {
                 <div className="mx-2">H1 GamePad</div>
               </div>
             </td>
-            <td><div className="my-5">650$</div></td>
             <td>
-              <button class="decrease() my-5 ">-</button>
-              <input type="number" max={100} min={1} defaultValue={1} />
-              <button class="decrease()">+</button>
+              <div className="my-5">650$</div>
             </td>
-            <td><div className="my-5">650$</div></td>
+            <td>
+              <button class="decrease() my-5 btn btn-light ">-</button>
+              <input
+                type="number"
+                max={100}
+                min={1}
+                defaultValue={1}
+                style={{ height: 35 }}
+              />
+              <button class="decrease() btn btn-light">+</button>
+            </td>
+            <td>
+              <div className="my-5">650$</div>
+            </td>
             <td>
               <button class="btn btn-danger my-5">Delete</button>
             </td>
@@ -76,45 +93,72 @@ function cart(props) {
         </tbody>
       </table>
       <br />
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between ">
         <div>
-        <button type="button" class="btn btn-outline-danger style">Return To Shop</button>
-         
+          <button
+            type="button"
+            class="btn btn-outline-danger style "
+            style={{ height: 56, width:218  }}
+          >
+            Return To Shop
+          </button>
         </div>
 
         <div>
-        
-        <button type="button" class="btn btn-outline-danger style">Update Cart</button>
+          <button
+            type="button"
+            class="btn btn-outline-danger style"
+            style={{ height: 56, width :195  }}
+          >
+            Update Cart
+          </button>
         </div>
       </div>
       <br />
-      <div className="d-flex justify-content-between">
-        <div>
-          <input type="text" placeholder="coupon Code" />
-          <button class="btn btn-danger">Apply Coupon</button>
+
+      <div className="d-flex justify-content-between my-5">
+        <div class="d-flex justify-content-around gap-lg-3">
+          <input
+            type="text"
+            className="form-control border-1 border-dark w-100"
+            placeholder="Coupon Code"
+            style={{ height: 56, width:300 }}
+          />
+          <button class="btn btn-danger" style={{ height: 56, width:211 }}>
+            Apply Coupon
+          </button>
         </div>
 
-        <span class="border border-dark">
-          <div>
-            <text className="text">Cart Total</text>
+        <span
+          class="border border-dark "
+          style={{ height: 324, width: 470, margin:"top" }}
+        >
+
+
+          <div >
+            <text className="text" width={100} height={28} top={32} left={24} size={20} >Cart Total</text>
             <div className="d-flex justify-content-between">
               <p>Subtotal:</p>
               <p>1750$</p>
             </div>
+            <hr width="80%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Shiping:</p>
               <p>free</p>
             </div>
+            <hr width="80%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Total:</p>
               <p>1750$</p>
             </div>
-            <div>
+
+            <div className="d-flex justify-content-between">
               <Link to={LOCATIONS.CHECKOUT}>
-                <button className="btn btn-danger">Process Checkout</button>
+                <button className="btn btn-danger " >Process Checkout</button>
               </Link>
             </div>
           </div>
+
         </span>
       </div>
     </div>
