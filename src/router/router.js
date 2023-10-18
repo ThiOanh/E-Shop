@@ -4,7 +4,7 @@ import Main from 'components/main';
 import AboutPage from 'pages/about';
 import ProductDetail from 'components/productDetail';
 import Cart from 'components/Cart/cart';
-import Checkout from 'components/Cart/Checkout';
+import Checkout from 'components/checkout/Checkout';
 export const routers = [
     //   { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
     {
@@ -25,6 +25,7 @@ export const routers = [
             //   { path: LOCATIONS.TAB, name: "Tab", element: <TabPage /> },
             //   { path: LOCATIONS.SLIDE, name: "Slider", element: <SliderPage /> },
             //   { path: LOCATIONS.MY_PROFILE, name: "My Profile", element: <Profile /> },
+
         ]
     },
 ]

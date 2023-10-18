@@ -1,79 +1,174 @@
-
-
 import React from "react";
- import { Link } from "react-router-dom";
- import { LOCATIONS } from "constants/index";
-function Cart(props) {
+import gamepad from "assets/product/gamePad.png";
+import laptop from "assets/product/laptop.png";
+import { Link } from "react-router-dom";
+import { LOCATIONS } from "constants/index";
+import "./cart.module.scss";
+
+function cart(props) {
   return (
     <div className="container">
-      <div>
-        <table className="table table-striped">
+      {/* header link  */}
+      <div className="d-flex my-5 text-black-50  ">
+        <li>
+          <Link to={LOCATIONS.HOME_PAGE}>Home</Link>
+        </li>
+        <span className="mx-2">/</span>
+        {/* active text-body */}
+        <a href="/Cart" className="text-body">
+          Cart
+        </a>
+      </div>
+
+      <table class="table">
+        <thead>
           <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-            <th>Action</th>
+            <th> Product</th>
+            <th> Price</th>
+            <th> Quantity</th>
+            <th> Subtotal</th>
+            <th> Remove</th>
           </tr>
-          <tr style={{border:"1px solid black"}}>
-            <td>Ltd Monitor</td>
-            <td>20$</td>
-            <td>
-              <input type="number" max={100} min={1} defaultValue={1} />
-            </td>
-            <td>19$</td>
-            <td>
-              <button type="button" class="btn btn-danger">
-                Danger
-              </button>
-            </td>
-          </tr>
+        </thead>
+        <tbody>
           <tr>
-            <td>Ltd Monitor</td>
-            <td>20$</td>
             <td>
-              <input type="number" max={100} min={1} defaultValue={1} />
+              <div className="d-flex align-items-center my-5">
+                <img src={gamepad} alt="gamepad" width={54} height={54} />
+                <div className="mx-2">LCD Monitor</div>
+              </div>
             </td>
-            <td>19$</td>
+
             <td>
-              <button type="button" class="btn btn-danger">
-                Danger
-              </button>
+              <div className="my-5">650$</div>
+            </td>
+
+            <td>
+              <button class="decrease() my-5 btn btn-light">-</button>
+              <input
+                type="number"
+                max={100}
+                min={1}
+                defaultValue={1}
+                style={{ height: 35 }}
+              />
+              <button class="increase() btn btn-light">+</button>
+              <p id="demo"></p>
+            </td>
+            <td>
+              <div className="my-5">650$</div>
+            </td>
+            <td>
+              <button class="btn btn-danger my-5">Delete</button>
             </td>
           </tr>
-        </table>
-        <hr/>
-        <div className="d-flex justify-content-between">
-          <div>Return Shop</div>
-          <div>Update Cart</div>
+
+
+          <tr> 
+            <td>
+              <div className="d-flex align-items-center my-5">
+                <img src={laptop} alt="laptop" width={50} height={50} />
+                <div className="mx-2">H1 GamePad</div>
+              </div>
+            </td>
+            <td>
+              <div className="my-5">650$</div>
+            </td>
+            <td>
+              <button class="decrease() my-5 btn btn-light ">-</button>
+              <input
+                type="number"
+                max={100}
+                min={1}
+                defaultValue={1}
+                style={{ height: 35 }}
+              />
+              <button class="decrease() btn btn-light">+</button>
+            </td>
+            <td>
+              <div className="my-5">650$</div>
+            </td>
+            <td>
+              <button class="btn btn-danger my-5">Delete</button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+      <br />
+      <div className="d-flex justify-content-between ">
+        <div>
+          <button
+            type="button"
+            class="btn btn-outline-danger style "
+            style={{ height: 56, width:218  }}
+          >
+            Return To Shop
+          </button>
         </div>
-        <hr/>
-        <div className="d-flex justify-content-between">
-          <div>
-            <input type="text" placeholder="coupon code" />
-            <button>apply code</button>
-          </div>
-          <div>
-            <h3>Cart</h3>
-            <div className="d-flex justify-content-between">
+
+        <div>
+          <button
+            type="button"
+            class="btn btn-outline-danger style"
+            style={{ height: 56, width :195  }}
+          >
+            Update Cart
+          </button>
+        </div>
+      </div>
+      <br />
+
+      <div className="d-flex justify-content-between my-4">
+        <div class="d-flex justify-content-around gap-lg-3">
+          <input
+            type="text"
+            className="form-control border-1 border-dark w-100"
+            placeholder="Coupon Code"
+            style={{ height: 56, width:300 }}
+          />
+          <button class="btn btn-danger w-90" style={{ height: 56, width:211, borderRadius:4 }}>
+            Apply Coupon
+          </button>
+        </div>
+
+        <span
+          class="border border-dark  "
+          style={{ height: 324, width: 470, margin:"top" }}
+        >
+
+
+          <div className="container mt-3"  >
+            <h5 className="text" width={100} height={28}  >Cart Total</h5>
+            <div className="d-flex justify-content-between my-4 ">
               <p>Subtotal:</p>
               <p>1750$</p>
             </div>
+            <hr width="99%" color="black"  size="1px"/>
             <div className="d-flex justify-content-between">
               <p>Shiping:</p>
-              <p>free</p>
+              <p>Free</p>
             </div>
-            <div>
-            
-<Link to={LOCATIONS.CHECKOUT}><button className="btn btn-danger">Process Checkout</button></Link>
+            <hr width="99%" color="black"  size="1px"/>
+            <div className="d-flex justify-content-between">
+              <p>Total:</p>
+              <p>1750$</p>
+            </div>
 
+            <div className="d-flex justify-content-around">
+              <Link to={LOCATIONS.CHECKOUT}>
+                <button className="btn btn-danger " >Process Checkout</button>
+              </Link>
+            </div>
           </div>
-          </div>
+
           
-        </div>
+
+        </span>
       </div>
     </div>
   );
 }
 
-export default Cart;
+export default cart;
