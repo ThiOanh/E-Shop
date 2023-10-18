@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import gamepad from "assets/product/gamePad.png";
 import laptop from "assets/product/laptop.png";
 import { Link } from "react-router-dom";
 import { LOCATIONS } from "constants/index";
 import "./cart.module.scss";
 
-function cart(props) {
+function Cart(props) {
+  const [value,setValue]= useState(1)
   return (
     <div className="container">
       {/* header link  */}
@@ -44,15 +45,16 @@ function cart(props) {
             </td>
 
             <td>
-              <button class="decrease() my-5 btn btn-light">-</button>
+              <button onClick={()=>setValue((value)=>{if(value<=0){return 0} return value-1})} class="decrease() my-5 btn btn-light">-</button>
               <input
                 type="number"
                 max={100}
                 min={1}
-                defaultValue={1}
+                value={value}
+                onChange={(e)=>setValue(e.target.value)}
                 style={{ height: 35 }}
               />
-              <button class="increase() btn btn-light">+</button>
+              <button onClick={()=>setValue((value)=>value+1)} className="my-5 btn btn-light">+</button>
               <p id="demo"></p>
             </td>
             <td>
@@ -171,4 +173,4 @@ function cart(props) {
   );
 }
 
-export default cart;
+export default Cart;
