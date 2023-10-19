@@ -3,8 +3,8 @@ import Layout from 'components/layout';
 import Main from 'components/main';
 import AboutPage from 'pages/about';
 import ProductDetail from 'components/productDetail';
-import Cart from 'components/Cart/cart';
-import Checkout from 'components/checkout/checkout';
+import Cart from 'components/Cart/index';
+import Checkout from 'components/checkout/index';
 export const routers = [
     //   { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
     {
