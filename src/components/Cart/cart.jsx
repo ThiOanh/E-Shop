@@ -21,8 +21,8 @@ function Cart(props) {
         </a>
       </div>
 
-      <table class="table">
-        <thead>
+      <table className="table">
+        <thead className="header">
           <tr>
             <th> Product</th>
             <th> Price</th>
@@ -61,7 +61,7 @@ function Cart(props) {
               <div className="my-5">650$</div>
             </td>
             <td>
-              <button class="btn btn-danger my-5">Delete</button>
+              <button className="btn btn-danger my-5">Delete</button>
             </td>
           </tr>
 
@@ -77,7 +77,7 @@ function Cart(props) {
               <div className="my-5">650$</div>
             </td>
             <td>
-              <button class="decrease() my-5 btn btn-light ">-</button>
+              <button className="decrease() my-5 btn btn-light ">-</button>
               <input
                 type="number"
                 max={100}
@@ -85,13 +85,13 @@ function Cart(props) {
                 defaultValue={1}
                 style={{ height: 35 }}
               />
-              <button class="decrease() btn btn-light">+</button>
+              <button className="decrease() btn btn-light">+</button>
             </td>
             <td>
               <div className="my-5">650$</div>
             </td>
             <td>
-              <button class="btn btn-danger my-5">Delete</button>
+              <button className="btn btn-danger my-5">Delete</button>
             </td>
           </tr>
 
@@ -113,7 +113,7 @@ function Cart(props) {
         <div>
           <button
             type="button"
-            class="btn btn-outline-danger style"
+            className="btn btn-outline-danger style"
             style={{ height: 56, width :195  }}
           >
             Update Cart
@@ -123,20 +123,20 @@ function Cart(props) {
       <br />
 
       <div className="d-flex justify-content-between my-4">
-        <div class="d-flex justify-content-around gap-lg-3">
+        <div className="d-flex justify-content-around gap-lg-3">
           <input
             type="text"
             className="form-control border-1 border-dark w-100"
             placeholder="Coupon Code"
             style={{ height: 56, width:300 }}
           />
-          <button class="btn btn-danger w-90" style={{ height: 56, width:211, borderRadius:4 }}>
+          <button className="btn btn-danger w-90" style={{ height: 56, width:211, borderRadius:4 }}>
             Apply Coupon
           </button>
         </div>
 
         <span
-          class="border border-dark  "
+          className="border border-dark  "
           style={{ height: 324, width: 470, margin:"top" }}
         >
 

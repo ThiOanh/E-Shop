@@ -116,7 +116,7 @@ function Header(props) {
                <Link to={LOCATIONS.CART}>
                <Badge count={0} showZero>
                   <img
-                    src={require("assets/images/icon/header/Cart1.png")}
+                    src={require("assets/images/icon/header/Cart.png")}
                     alt="Whishlist"
                   />
                 </Badge>
