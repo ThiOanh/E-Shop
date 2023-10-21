@@ -4,7 +4,7 @@ import Main from 'components/main';
 import AboutPage from 'pages/about';
 import ProductDetail from 'components/productDetail';
 import Cart from 'components/Cart/index';
-import Checkout from 'components/Checkout/index';
+import Checkout from 'components/checkout';
 export const routers = [
     //   { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
     {

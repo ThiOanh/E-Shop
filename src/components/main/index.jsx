@@ -10,7 +10,6 @@ import Adv from "components/adv";
 import OurProducts from "components/ourProducts";
 import Featured from "components/featured";
 import ServicesMenu from "components/servicesMenu";
-import ProductDetail from "components/productDetail";
 import SlideBar from "components/slidebar";
 import Carousels from "components/carousel";
 import SlideBarMobile from "components/slidebar/slidebarMobile";

@@ -9,7 +9,7 @@ import master_card from "assets/images/payment-method/Mastercard.wine.svg";
 
 
 
-function checkout(props) {
+function Checkout(props) {
   return (
     <div className="container mb-5">
       {/* header link */}
@@ -226,5 +226,5 @@ function checkout(props) {
   );
 }
 
-export default checkout;
+export default Checkout;
 // rsf

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 
 import styles from "./slidebarMobile.module.scss";
 import { Link } from "react-router-dom";
@@ -65,7 +65,6 @@ const Category = [
   },
 ];
 function SlideBarMobile(props) {
-  const [categoryList, setCategory] = useState(Category);
 //   const showMenu = useCallback(
 //     (index) => {
 //       return () => {
@@ -94,7 +93,7 @@ function SlideBarMobile(props) {
     <div className={styles.slide_mobile}>
         <h2>Categories</h2>
       <div className={styles.grid_container}>
-        {categoryList.map((item, index) => {
+        {Category.map((item, index) => {
           return (
             <div className={styles.grid_item} key={item.id}>
               <Link>{item.name}</Link>
