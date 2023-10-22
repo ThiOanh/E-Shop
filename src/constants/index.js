@@ -6,11 +6,12 @@ export const LOCATIONS = {
     // AD_PRODUCTS:'/admin/products',
     // AD_CUSTOMER:'/admin/customers',
     //User
-    HOME_PAGE: '/',
-    ABOUT_PAGE: '/about',
-    // LOGIN: '/login',
-    PRODUCTS: '/products',
-    PRODUCT_DETAILS: '/products/:id',
-    CART: '/Cart',
-    CHECKOUT: '/cart-checkout',
+    // HOME_PAGE: '/',
+    // ABOUT_PAGE: '/about',
+    SIGN_UP: '/signup',
+    CONTACT_PAGE: '/contact',
+    WISHLIST_PAGE: '/wishlist',
+
+    // PRODUCTS: '/products',
+    // PRODUCT_DETAILS: '/products/:id',
 }
