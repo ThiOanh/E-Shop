@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import gamepad from "assets/product/gamePad.png";
 import laptop from "assets/product/laptop.png";
 import { Link } from "react-router-dom";
@@ -7,6 +7,26 @@ import styles from "./cart.module.scss";
 import { Checkbox } from "antd";
 
 function Cart(props) {
+  const [quantity, setQuantity] = useState(1);
+  const subQuantity = useCallback(() => {
+    if (quantity <= 0) {
+      return;
+    }
+    setQuantity((quantity) => quantity - 1);
+  }, [quantity]);
+
+  const sumQuantity = useCallback(() => {
+    setQuantity((quantity) => quantity + 1);
+  }, []);
+
+  const handleChangeQuantity = useCallback((e) => {
+    if (!e.target.value) {
+      setQuantity(0);
+      return;
+    }
+    setQuantity(parseInt(e.target.value));
+  }, []);
+
   const [value, setValue] = useState(1);
   return (
     <div className={`container`}>
@@ -25,16 +45,12 @@ function Cart(props) {
       </div>
 
       <div className={styles.block_cart}>
-        {/* cart  */}
+        {/* Shopping Detail Cart  */}
         <div className={"container my-5"}>
           {/* Category */}
           <div className={`row ${styles.custom_row} ${styles.row_category}`}>
-            {/* category checkbox  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-1 ${styles.custom_col}`}>
               <div className={styles.category_checkbox}>
-                {/* <form action="/action_page.php"> */}
                 <input
                   type="checkbox"
                   id="vehicle1"
@@ -42,56 +58,34 @@ function Cart(props) {
                   value="Bike"
                   style={{ height: 21, width: 21 }}
                 />
-                {/* </form> */}
               </div>
             </div>
-
-            {/* category product */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-4  ${styles.custom_col}`}>
               <div className={styles.category_product}>Product</div>
             </div>
 
-            {/* category price  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-2 ${styles.custom_col}`}>
               <div className={styles.category_price}>Price</div>
             </div>
 
-            {/* category Quantity  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-2 ${styles.custom_col}`}>
               <div className={styles.category_quantity}>Quantity</div>
             </div>
 
-            {/* category Subtotal  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-2 ${styles.custom_col}`}>
               <div className={styles.category_subtotal}>Subtotal</div>
             </div>
 
-            {/* category operation  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-1 ${styles.custom_col}`}>
               <div className={styles.category_operate}>operate</div>
             </div>
           </div>
           <br />
-          {/* Detail Product */}
-          <div
-            className={`row ${styles.custom_row} ${styles.row_detailproduct}`}
-          >
-            {/* detail checkbox  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+
+          {/* Detail Product to Cart */}
+          <div className={`row ${styles.custom_row} ${styles.row_detail_cart}`}>
+            <div className={`col-1 ${styles.custom_col}`}>
               <div className={styles.detail_checkbox}>
-                {/* <form action="/action_page.php"> */}
                 <input
                   type="checkbox"
                   id="vehicle1"
@@ -99,14 +93,10 @@ function Cart(props) {
                   value="Bike"
                   style={{ height: 21, width: 21 }}
                 />
-                {/* </form> */}
               </div>
             </div>
 
-            {/* detail product */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-4  ${styles.custom_col}`}>
               <div className={styles.detail_product}>
                 <div className="d-flex center">
                   <img
@@ -120,62 +110,49 @@ function Cart(props) {
               </div>
             </div>
 
-            {/* detail price  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-2 ${styles.custom_col}`}>
               <div className={styles.detail_price}>$650</div>
             </div>
 
-            {/* detail Quantity  */}
+            {/* Quantity - Cart  */}
+
             <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
+              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col} ${styles.custom_col_detail_cart}`}
             >
-              <div className={styles.detail_quantity}>
-                <div className="col">
-                  {" "}
-                  <button
-                    onClick={() =>
-                      setValue((value) => {
-                        if (value <= 0) {
-                          return 0;
-                        }
-                        return value - 1;
-                      })
-                    }
-                    className="decrease() btn btn-light"
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    max={100}
-                    min={1}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    style={{ height: 35 }}
+              <div className={styles.cover_quantity}>
+                <div onClick={subQuantity} className={styles.subtraction}>
+                  <img
+                    src={require("assets/productDetail/sub.png")}
+                    alt="..."
                   />
-                  <button
-                    onClick={() => setValue((value) => value + 1)}
-                    className="my-5 btn btn-light"
-                  >
-                    +
-                  </button>
+                </div>
+                <div>
+                  <input
+                    className={`${styles.quantity_input} ${styles.no_arrow_input}`}
+                    type="number"
+                    required
+                    // value={quantity || 0}
+                    value={quantity !== 0 ? parseInt(quantity).toString() : "0"}
+                    onChange={handleChangeQuantity}
+                    // max={100}
+                    // min={1}
+                  />
+                </div>
+
+                <div onClick={sumQuantity} className={styles.summation}>
+                  <img
+                    src={require("assets/productDetail/sum.png")}
+                    alt="..."
+                  />
                 </div>
               </div>
             </div>
 
-            {/* detail Subtotal  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-sm-2 ${styles.custom_col}`}>
               <div className={styles.detail_subtotal}>$650</div>
             </div>
 
-            {/* detail operation  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-1 ${styles.custom_col}`}>
               <div className={styles.detail_operation}>
                 <button className="btn btn-danger  ">Delete</button>
               </div>
@@ -183,16 +160,11 @@ function Cart(props) {
           </div>
           {/* <hr  width="90%"/> */}
           <br />
-          {/* Detail Product */}
-          <div
-            className={`row ${styles.custom_row} ${styles.row_detailproduct}`}
-          >
-            {/* detail checkbox  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+
+          {/* Detail Product to Cart */}
+          <div className={`row ${styles.custom_row} ${styles.row_detail_cart}`}>
+            <div className={`col-1 ${styles.custom_col}`}>
               <div className={styles.detail_checkbox}>
-                {/* <form action="/action_page.php"> */}
                 <input
                   type="checkbox"
                   id="vehicle1"
@@ -200,14 +172,10 @@ function Cart(props) {
                   value="Bike"
                   style={{ height: 21, width: 21 }}
                 />
-                {/* </form> */}
               </div>
             </div>
 
-            {/* detail product */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-4  ${styles.custom_col}`}>
               <div className={styles.detail_product}>
                 <div className="d-flex center">
                   <img
@@ -221,62 +189,49 @@ function Cart(props) {
               </div>
             </div>
 
-            {/* detail price  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-2 ${styles.custom_col}`}>
               <div className={styles.detail_price}>$650</div>
             </div>
 
-            {/* detail Quantity  */}
+            {/* Quantity - Cart  */}
+
             <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
+              className={`col-2  ${styles.custom_col} ${styles.custom_col_detail_cart}`}
             >
-              <div className={styles.detail_quantity}>
-                <div className="col">
-                  {" "}
-                  <button
-                    onClick={() =>
-                      setValue((value) => {
-                        if (value <= 0) {
-                          return 0;
-                        }
-                        return value - 1;
-                      })
-                    }
-                    className="decrease() btn btn-light"
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    max={100}
-                    min={1}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    style={{ height: 35 }}
+              <div className={styles.cover_quantity}>
+                <div onClick={subQuantity} className={styles.subtraction}>
+                  <img
+                    src={require("assets/productDetail/sub.png")}
+                    alt="..."
                   />
-                  <button
-                    onClick={() => setValue((value) => value + 1)}
-                    className="my-5 btn btn-light"
-                  >
-                    +
-                  </button>
+                </div>
+                <div>
+                  <input
+                    className={`${styles.quantity_input} ${styles.no_arrow_input}`}
+                    type="number"
+                    required
+                    // value={quantity || 0}
+                    value={quantity !== 0 ? parseInt(quantity).toString() : "0"}
+                    onChange={handleChangeQuantity}
+                    // max={100}
+                    // min={1}
+                  />
+                </div>
+
+                <div onClick={sumQuantity} className={styles.summation}>
+                  <img
+                    src={require("assets/productDetail/sum.png")}
+                    alt="..."
+                  />
                 </div>
               </div>
             </div>
 
-            {/* detail Subtotal  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-sm-2 ${styles.custom_col}`}>
               <div className={styles.detail_subtotal}>$650</div>
             </div>
 
-            {/* detail operation  */}
-            <div
-              className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ${styles.custom_col}`}
-            >
+            <div className={`col-1 ${styles.custom_col}`}>
               <div className={styles.detail_operation}>
                 <button className="btn btn-danger  ">Delete</button>
               </div>
