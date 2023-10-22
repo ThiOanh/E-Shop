@@ -1,8 +1,156 @@
-.header {
+.custom_row {
+    margin-top: 12;
+    padding: 0;
+}
+
+.custom_col {
+    margin: 0;
+    padding: 20;
+}
+
+.row_header_link {
+    margin-top: 133px;
+}
+
+.header_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 21px;
+}
+
+.parent_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 21px;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    color: #000000;
+}
+
+.children_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 21px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    color: #000000;
+}
+
+.block_cart {
+    width: 1170px;
+    height: 840px;
+    top: 800px;
+    // left: 135px;
+    gap: 80px;
+}
+
+.row_category {
     display: flex;
     width: 1170px;
     height: 72px;
     padding: 24px 39px 24px 40px;
     justify-content: center;
     align-items: center;
+    border-radius: 4px;
+    background: var(--Primary, #FFF);
+    /* Categogy/5 */
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.category_checkbox {
+    display: flex;
+    border-width: 1.25px;
+    margin: 0px 8px 0px 0px;
+}
+
+.category_product {
+    width: 693px;
+    height: 24px;
+}
+
+.category_price {
+    height: 50;
+    width: 50;
+}
+
+.category_quantity {
+    height: 50;
+    width: 50;
+}
+
+.category_subtotal {
+    height: 50;
+    width: 50;
+}
+
+.category_operate {
+    height: 50;
+    width: 50;
+}
+
+.row_detailproduct {
+    display: flex;
+    width: 1170px;
+    height: 102px;
+    padding: 0px 0px 0px 40px;
+    // padding: 24px 39px 24px 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--Primary, #FFF);
+    /* Categogy/5 */
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.detail_checkbox {
+    display: flex;
+    border-width: 1.25px;
+    margin: 0px 8px 0px 0px;
+    align-items: center;
+}
+
+.detail_product {
+    height: 50;
+    width: 50;
+}
+
+.detail_price {
+    height: 50;
+    width: 50;
+}
+
+.detail_quantity {
+    height: 50;
+    width: 50;
+}
+
+.detail_subtotal {
+    height: 50;
+    width: 50;
+}
+
+.detail_operation {
+    height: 36;
+    width: 16;
+}
+
+.return {
+    height: 56;
+    width: 1950;
+}
+
+.update {
+    height: 56;
+    width: 195;
 }
