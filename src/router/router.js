@@ -7,10 +7,11 @@ import Cart from 'components/Cart/index';
 import Checkout from 'components/checkout/index';
 import WishlistPage from 'pages/wishList';
 import Contact from 'components/contact';
+import Form from 'components/Form';
 
 
 export const routers = [
-    //   { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
+      { path: LOCATIONS.LOGIN, element: <Form/> },
     {
         path: LOCATIONS.HOME_PAGE,
         name: "Layout",
@@ -23,10 +24,6 @@ export const routers = [
             { path: LOCATIONS.CHECKOUT, element: < Checkout/> },
             { path: LOCATIONS.CONTACT_PAGE, element: <Contact/> },
           { path: LOCATIONS.WISHLIST_PAGE, element: <WishlistPage/> },
-            
-
-
-
 
             //   { path: LOCATIONS.FORM, name: "Form Register", element: <FormPage /> },
             //   { path: LOCATIONS.TAB, name: "Tab", element: <TabPage /> },

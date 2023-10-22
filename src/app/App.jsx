@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routers } from "../router/router";
 import { useCallback, useEffect, useState } from "react";
@@ -14,15 +13,6 @@ function App() {
 
 
   
-=======
-import { useCallback } from "react";
-import { Routes, Route } from "react-router-dom";
-import { routers } from "router/router";
-
-
-
-function App() {
->>>>>>> 1370df7efbac9c41991528b69be8fa6e305f91aa
   const renderRoutes = useCallback((routers) => {
     return routers.map((route, index) => {
       if (route.children && route.children.length > 0) {
@@ -41,7 +31,6 @@ function App() {
     });
   }, []);
 
-<<<<<<< HEAD
   return (
     <>
     <Router>
@@ -49,9 +38,6 @@ function App() {
     </Router>
     </>
   );
-=======
-  return <Routes>{renderRoutes(routers)}</Routes>;
->>>>>>> 1370df7efbac9c41991528b69be8fa6e305f91aa
 }
 
 export default App;
