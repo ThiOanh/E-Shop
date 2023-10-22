@@ -53,24 +53,40 @@
     margin-top: 1.5em;
 }
 .profile{
+    margin-bottom: 1.5em;
     .box_profile{
-        margin: 0 auto;
-        img{
-            width: 300px;
-            height: 400px;
+        .box_img{
+            background-color: #F5F5F5;
+            img{
+                width: 300px;
+                height: 400px;
+                
+            }
+        
+
+        }
+        .name{
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 30px;
+
+        }
+        .role{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+        .name,.role{
+            margin-bottom: 10px;
         }
         .box_icon{
         display: flex;
         gap: 16px;
-        align-items: center;
         img{
             width: 24px;
             height: 24px;
         }
     }
-    }
-    .swiper_slide{
-        width: calc(100% / 3);
     }
 }
 // Carousel
