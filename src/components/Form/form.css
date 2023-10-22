@@ -1,0 +1,67 @@
+.google-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.google-signin-button {
+  background-color: white;
+  color: black;
+  border-color: rgb(145, 140, 140) 0.5;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 300px;
+  align-items: center;
+
+}
+
+.forget-password {
+  color: red;
+  margin-left: 100px;
+  margin-top: 200px;
+}
+
+
+@media (max-width: 768px) {
+  .image {
+    display: none;
+  }
+
+  .form {
+    margin-left: 50px;
+    margin-top: 50%;
+  }
+  .login{
+    background-image: url(/src/components/assets/images/form/background_login.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+  }
+
+}
+
+/* Kiểu CSS cho màn hình có độ rộng lớn hơn 768px */
+@media (min-width: 768px) {
+
+  .google-signin-button:hover {
+    background-color: #357ae8;
+  }
+
+  .google-signin-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+  }
+
+  .image {
+    display: block;
+  }
+
+  .form {
+    margin-left: 129px;
+  }
+}
