@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,6 +9,21 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+=======
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from 'react-router-dom';
+import "./index.css";
+import App from "./app/App";
+import reportWebVitals from "./app/reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+>>>>>>> 1370df7efbac9c41991528b69be8fa6e305f91aa
   </React.StrictMode>
 );
 
