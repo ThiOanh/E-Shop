@@ -1,0 +1,111 @@
+.card {
+    position: relative;
+    max-width: 270px;
+    height: 322px;
+    min-width: 160px;
+    display: inline-block;
+}
+
+.header {
+    display: flex;
+    position: absolute;
+    top: 0;
+}
+
+.delete-button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    /* background-color: transparent; */
+    margin-left: 215px;
+    margin-top: 15px;
+}
+
+.card-header {
+    width: 100%;
+    overflow: hidden;
+    height: 200px;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    /* border-radius: 5px; */
+
+}
+
+.discounted {
+    width: 50px;
+    height: 25px;
+    display: flex;
+    background-color: red;
+    justify-content: center;
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+
+}
+
+.cart_icon {
+    margin-right: 10px;
+}
+
+.add-to-cart-button {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.product_name {
+    font-weight: bold;
+}
+
+.new_price {
+    color: red;
+    margin-right: 20px;
+}
+
+.old_price {
+    color: rgb(96, 92, 92);
+    text-decoration: line-through;
+}
+
+.price-wrapper {
+    display: flex;
+
+}
+
+@media (max-width: 767px) {
+    .delete-button {
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        padding: 0;
+        cursor: pointer;
+        outline: none;
+        /* background-color: transparent; */
+        margin-left: 110px;
+        margin-top: 15px;
+    }
+
+    .card-header {
+        height: 150px;
+    }
+
+    .discounted {
+        width: 35px;
+        top: 10px;
+        left: 10px;
+    }
+}

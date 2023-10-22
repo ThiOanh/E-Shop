@@ -1,0 +1,95 @@
+.wishlist{
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    overflow-y: hidden;
+}
+.slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin-right: 10px;
+    background-color: rebeccapurple;
+  }
+@media (max-width: 768px) {
+    .move-all-to-bag {
+        display: none;
+    }
+
+    .see-all-button {
+        display: none;
+    }
+
+    .wishlist {
+        display: flex;
+        /* margin-top: 60px; */
+        margin-bottom: 80px;
+        /* flex-wrap: wrap; */
+    }
+
+
+    .list {
+        margin: 10px 10px;
+        
+    }
+
+    .card {
+        margin-left: 10px;
+        margin-top: 20px;
+        width: 50%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+    .wishlist span {
+        flex-basis: 40%; /* Sản phẩm sẽ chiếm 50% chiều ngang của flex container */
+        box-sizing: border-box;
+        margin-right: 20px;
+      }
+    
+}
+
+
+@media (min-width: 768px) {
+    .see-all-button {
+        position: absolute;
+        right: 200px;
+        width: 223px;
+        height: 50px;
+        background-color: white;
+        border-radius: 4px;
+    }
+
+    .move-all-to-bag {
+        position: absolute;
+        right: 200px;
+        width: 223px;
+        height: 50px;
+        background-color: white;
+        border-radius: 4px;
+    }
+
+    .wishlist {
+        display: flex;
+        margin-top: 60px;
+        margin-bottom: 80px;
+        /* justify-content: center; */
+        /* flex-wrap: wrap; */
+        width: 1170px;
+    }
+
+    .card {
+        margin-right: 30px;
+        width: 260px;
+        margin-top: 20px;
+    }
+
+    .list {
+        margin: 135px 200px;
+        display: block;
+
+    }
+}
