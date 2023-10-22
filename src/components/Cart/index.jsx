@@ -45,7 +45,6 @@ function Cart(props) {
       </div>
 
       <div className={styles.block_cart}>
-
         {/* Shopping Detail Cart  */}
         <div className={"container my-5"}>
           {/* Category */}
@@ -126,7 +125,8 @@ function Cart(props) {
                     src={require("assets/productDetail/sub.png")}
                     alt="..."
                   />
-
+                </div>
+                <div>
                   <input
                     className={`${styles.quantity_input} ${styles.no_arrow_input}`}
                     type="number"
@@ -204,7 +204,8 @@ function Cart(props) {
                     src={require("assets/productDetail/sub.png")}
                     alt="..."
                   />
-
+                </div>
+                <div>
                   <input
                     className={`${styles.quantity_input} ${styles.no_arrow_input}`}
                     type="number"
@@ -236,8 +237,6 @@ function Cart(props) {
               </div>
             </div>
           </div>
-
-         
         </div>
         <br />
 

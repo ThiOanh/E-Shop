@@ -159,23 +159,29 @@
 .cover_quantity {
     display: flex;
     align-items: center;
-    // justify-content: center;
-    width: 80%;
-    height: 44px;
-    border-radius: 4px;
+    justify-content: center;
+    width: 50%;
+    height: 31px;
+    border-radius: 1px;
 }
 
 .subtraction {
-    cursor: pointer;
-    display: flex;
+    width: 32px;
+    height: 32px;
     align-items: center;
+    border-color: #000000;
+    border-radius: 2px 0px 0px 2px;
+    border-style: solid;
+    border-width: 1.25px;
+    color: #000000;
+    display: flex;
+    font-family: Helvetica Neue;
+    font-size: 14px;
+    font-weight: 300;
     justify-content: center;
-    width: 40px;
-    height: 44px;
-    border-start-start-radius: 4px;
-    border-end-start-radius: 4px;
-    color: #00000080;
-    border: 1px solid #00000080;
+    line-height: 14px;
+    padding: 1px 6px;
+    text-align: center
 }
 
 .quantity {
@@ -184,6 +190,7 @@
     justify-content: center;
     width: 80px;
     height: 44px;
+    border-color: #000000;
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;
@@ -196,16 +203,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 44px;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: 0em;
-    border-radius: none;
-    border: none;
-    border-top: solid #00000080 1px;
-    border-bottom: solid #00000080 1px;
+    border-style: solid none;
+    border-width: 1.25px 0px;
+    color: #000000;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50px;
+    height: 32px;
+    padding: 1px 2px;
+    text-align: center;
 }
 
 
@@ -227,13 +233,21 @@ input[type="number"] {
 }
 
 .summation {
-    cursor: pointer;
-    display: flex;
     align-items: center;
+    border-color: #000000;
+    border-radius: 0px 2px 2px 0px;
+    border-style: solid;
+    border-width: 1.25px;
+    color: #000000;
+    display: flex;
+    font-family: Helvetica Neue;
+    font-size: 14px;
+    font-weight: 300;
     justify-content: center;
-    width: 41px;
-    height: 44px;
-    border-start-end-radius: 4px;
-    border-end-end-radius: 4px;
+    line-height: 14px;
+    padding: 1px 6px;
+    text-align: center;
+    width: 32px;
+    height: 32px;
     background-color: #db4444;
 }
