@@ -3,7 +3,7 @@
 import React, { memo, useCallback, useRef } from "react";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
