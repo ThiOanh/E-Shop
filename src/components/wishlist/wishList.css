@@ -79,6 +79,7 @@
         /* justify-content: center; */
         /* flex-wrap: wrap; */
         width: 1170px;
+           /* flex-wrap: wrap; */
     }
 
     .card {
@@ -90,6 +91,6 @@
     .list {
         margin: 135px 200px;
         display: block;
-
+         
     }
 }
