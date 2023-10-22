@@ -23,10 +23,8 @@ function Cart(props) {
           </div>
         </div>
       </div>
-      <div
-        className={`col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ${styles.block_cart}`}
-      >
-        {/* <div className={styles.block_cart}> */}
+
+      <div className={styles.block_cart}>
         {/* cart  */}
         <div className={"container my-5"}>
           {/* Category */}
