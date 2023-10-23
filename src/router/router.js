@@ -11,7 +11,7 @@ import Form from 'components/Form';
 
 
 export const routers = [
-      { path: LOCATIONS.LOGIN, element: <Form/> },
+      { path: LOCATIONS.SIGN_UP, element: <Form/> },
     {
         path: LOCATIONS.HOME_PAGE,
         name: "Layout",
