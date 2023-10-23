@@ -46,7 +46,7 @@ function Cart(props) {
 
       <div className={styles.block_cart}>
         {/* Shopping Detail Cart  */}
-        <div className={"container my-5"}>
+        <div className={"container1 my-5"}>
           {/* Category */}
           <div className={`row ${styles.custom_row} ${styles.row_category}`}>
             <div className={`col-1 ${styles.custom_col}`}>
@@ -110,7 +110,7 @@ function Cart(props) {
               </div>
             </div>
 
-            <div className={`col-2 ${styles.custom_col}`}>
+            <div className={`col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2  ${styles.custom_col}`}>
               <div className={styles.detail_price}>$650</div>
             </div>
 
@@ -250,7 +250,7 @@ function Cart(props) {
               <button type="button" className="btn btn-outline-danger style ">
                 Return To Shop
               </button>
-            </div>
+            </div> 
           </div>
           <div
             className={` col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 ${styles.custom_col}`}
@@ -259,7 +259,7 @@ function Cart(props) {
               <button
                 type="button"
                 className="  btn btn-outline-danger style"
-                style={{ height: 56, width: 218 }}
+                // style={{ height: 56, width: 218 }}
               >
                 Update Cart
               </button>
