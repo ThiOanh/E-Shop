@@ -2,18 +2,44 @@ import React, { useCallback, useRef } from "react";
 import { Row, Col } from "antd";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 // Import styles
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import styles from "./about.module.scss";
 function AboutPage(props) {
-  const swiperOurPRoducts = useRef();
-  const handleNext = useCallback(() => {
-    swiperOurPRoducts?.current?.swiper?.slideNext();
-  }, []);
+  // const swiperOurPRoducts = useRef();
+  // const handleNext = useCallback(() => {
+  //   swiperOurPRoducts?.current?.swiper?.slideNext();
+  // }, []);
 
-  const handlePrev = useCallback(() => {
-    swiperOurPRoducts?.current?.swiper?.slidePrev();
-  }, []);
+  // const handlePrev = useCallback(() => {
+  //   swiperOurPRoducts?.current?.swiper?.slidePrev();
+  // }, []);
+  const dataProfile=[
+    {
+      name:"Tom Cruise",
+      role:"Founder & Chairman",
+      img:require('assets/images/about/image 46.png')
+    },
+    {
+      name:"Emma Watson",
+      role:"Managing Director",
+      img:require('assets/images/about/image 51.png')
+    },
+    {
+      name:"Will Smith",
+      role:"Product Designer",
+      img:require('assets/images/about/image 47.png')
+    },
+    {
+      name:"Tom Cruise",
+      role:"Founder & Chairman",
+      img:require('assets/images/about/image 46.png')
+    },
+
+  ]
   return (
     <>
       <div className="container">
@@ -99,10 +125,12 @@ function AboutPage(props) {
           </Row>
         </div>
         <div className={styles.profile}>
-          <button onClick={handlePrev}>prev</button>
-          <button onClick={handleNext}>next</button>
+          {/* <button onClick={handlePrev}>prev</button>
+          <button onClick={handleNext}>next</button> */}
           <Swiper
-            ref={swiperOurPRoducts}
+            navigation={true}
+            // pagination={true}
+            modules={[Navigation, Pagination]}
             spaceBetween={50}
             breakpoints={{
               // Show 1 slide when screen width less than 700px
@@ -111,93 +139,41 @@ function AboutPage(props) {
               770: { slidesPerView: 2 },
               // Show 2 slide when screen > 1200px
               1024: { slidesPerView: 3 },
-              1980:{ slidesPerView: 4 }
+              1980: { slidesPerView: 4 },
+
             }}
           >
-            <SwiperSlide>
+            {dataProfile.map((item,idx)=>{
+              return <SwiperSlide key={idx}>
               <div className={styles.box_profile}>
-                <img src={require("assets/images/about/image 46.png")} alt="" />
-                <h1>Tom Cruise</h1>
-                <p>Fouder and Charman</p>
-                <div className={styles.box_icon}>
+                <div className={styles.box_img}>
                   <img
-                    src={require("assets/images/about/Icon-Twitter.png")}
-                    alt=""
+                    src={`${item.img}`}
+                    alt={`${item.img}`}
                   />
-                  <img
-                    src={require("assets/images/about/icon-instagram.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/Icon-Linkedin.png")}
-                    alt=""
-                  />
+                </div>
+
+                <div className=" mt-2 ms-3 text-start">
+                  <h2 className={styles.name}>{item.name}</h2>
+                  <p className={styles.role}>{item.role}</p>
+                  <div className={styles.box_icon}>
+                    <img
+                      src={require("assets/images/about/Icon-Twitter.png")}
+                      alt="twitter icon"
+                    />
+                    <img
+                      src={require("assets/images/about/icon-instagram.png")}
+                      alt="instagram icon"
+                    />
+                    <img
+                      src={require("assets/images/about/Icon-Linkedin.png")}
+                      alt="linkedin icon"
+                    />
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.box_profile}>
-                <img src={require("assets/images/about/image 46.png")} alt="" />
-                <h1>Tom Cruise</h1>
-                <p>Fouder and Charman</p>
-                <div className={styles.box_icon}>
-                  <img
-                    src={require("assets/images/about/Icon-Twitter.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/icon-instagram.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/Icon-Linkedin.png")}
-                    alt=""
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.box_profile}>
-                <img src={require("assets/images/about/image 46.png")} alt="" />
-                <h1>Tom Cruise</h1>
-                <p>Fouder and Charman</p>
-                <div className={styles.box_icon}>
-                  <img
-                    src={require("assets/images/about/Icon-Twitter.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/icon-instagram.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/Icon-Linkedin.png")}
-                    alt=""
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.box_profile}>
-                <img src={require("assets/images/about/image 46.png")} alt="" />
-                <h1>Tom Cruise</h1>
-                <p>Fouder and Charman</p>
-                <div className={styles.box_icon}>
-                  <img
-                    src={require("assets/images/about/Icon-Twitter.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/icon-instagram.png")}
-                    alt=""
-                  />
-                  <img
-                    src={require("assets/images/about/Icon-Linkedin.png")}
-                    alt=""
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
+            })}
           </Swiper>
           {/* <Carousel dots={{ className: styles.dot }} afterChange={onChange}>
             <div className={styles.box_profile}>
