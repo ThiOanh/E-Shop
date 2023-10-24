@@ -8,10 +8,12 @@ import Checkout from 'components/checkout/index';
 import WishlistPage from 'pages/wishList';
 import Contact from 'components/contact';
 import Form from 'components/Form';
+import Page404 from 'components/404';
 
 
 export const routers = [
       { path: LOCATIONS.SIGN_UP, element: <Form/> },
+      { path: LOCATIONS.PAGE_404, element: <Page404/> },
     {
         path: LOCATIONS.HOME_PAGE,
         name: "Layout",
