@@ -108,7 +108,7 @@ function Form(props) {
   return (
     <div className="login">
 
-      <div style={{ display: "flex",  }}>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <div className="image">
           <img src={form} alt="" style={{ width: "420px", height: "420px" }} />
         </div>

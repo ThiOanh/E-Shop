@@ -16,6 +16,5 @@ export const LOCATIONS = {
     PRODUCT_DETAILS: '/products/:id',
     CART: '/Cart',
     CHECKOUT: '/cart-checkout',
-    PAGE_404:'/404',
 
 }
