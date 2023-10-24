@@ -2,7 +2,6 @@
 import { Routes, Route } from "react-router-dom";
 import { routers } from "router/router";
 import { useCallback, useEffect, useState } from "react";
-import Page404 from "components/404";
 function App() {
 
   
@@ -25,9 +24,7 @@ function App() {
   }, []);
 
   return (
-    <>
     <Routes>{renderRoutes(routers)}</Routes>
-    </>
   );
 }
 
